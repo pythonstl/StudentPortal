@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/SignUp.css';
 import axios from 'axios';
+import {Animation, Animated} from 'react-animated-css';
 
 export default class SignUp extends Component {
 
@@ -35,13 +36,13 @@ export default class SignUp extends Component {
             password: this.state.password
         };
 
+
+
         axios.post("http://localhost:8080/submitStudentDetails", student).then( 
             (response) => { 
-                this.props.history.push('/thank-you')
+                this.props.history.push('/confirmation')
             }
         )
-
-        alert("User added!");
     }
 
     render() {
@@ -63,28 +64,28 @@ export default class SignUp extends Component {
                             <div className="myform form ">
                                 <form onSubmit={this.signUpSubmitHandler} name="signUp">
                                     <div className="form-group">
-                                        <input type="text" name="firstName" value={this.state.firstName} onChange={this.signUpChangeHandler} className="form-control" id="firstName" placeholder="First Name" />
+                                        <input type="text" name="firstName" value={this.state.firstName} onChange={this.signUpChangeHandler} className="form-control" id="firstName" placeholder="First Name" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" name="lastName" value={this.state.lastName} onChange={this.signUpChangeHandler} className="form-control" id="lastName" placeholder="Last Name" />
+                                        <input type="text" name="lastName" value={this.state.lastName} onChange={this.signUpChangeHandler} className="form-control" id="lastName" placeholder="Last Name" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" name="age" value={this.state.age} onChange={this.signUpChangeHandler} className="form-control" id="age" placeholder="Age" />
+                                        <input type="text" name="age" value={this.state.age} onChange={this.signUpChangeHandler} className="form-control" id="age" placeholder="Age" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" name="telephone" value={this.state.telephone} onChange={this.signUpChangeHandler} className="form-control" id="telephone" placeholder="Telephone" />
+                                        <input type="text" name="telephone" value={this.state.telephone} onChange={this.signUpChangeHandler} className="form-control" id="telephone" placeholder="Telephone" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" name="email" value={this.state.email} onChange={this.signUpChangeHandler} className="form-control" id="email" placeholder="E-mail" />
+                                        <input type="text" name="email" value={this.state.email} onChange={this.signUpChangeHandler} className="form-control" id="email" placeholder="E-mail" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="text" name="password" value={this.state.password} onChange={this.signUpChangeHandler} className="form-control" id="password" placeholder="Password" />
+                                        <input type="password" name="password" value={this.state.password} onChange={this.signUpChangeHandler} className="form-control" id="password" placeholder="Password" required />
                                     </div>
 
-                                    <div className="text-center ">
-                                        <button type="submit" className=" btn btn-block send-button tx-tfm">Create Your Free Account</button>
+                                    <div className="text-center">
+                                        <button type="submit" className="btn btn-block send-button tx-tfm">Create Your Free Account</button>
                                     </div>
-                                    <div className="col-md-12 ">
+                                    <div className="col-md-12">
                                         <div className="login-or">
                                             <hr className="hr-or" />     
                                         </div>
